@@ -9,13 +9,13 @@ base: io.qt.PySide.BaseApp
 base-version: '6.10'
 
 build-options:
-  append-path: /usr/lib/sdk/llvm21/bin
-  append-ld-library-path: /usr/lib/sdk/llvm21/lib
   env:
-
     BASEAPP_REMOVE_WEBENGINE: "1"
     BASEAPP_DISABLE_NUMPY: "1"
     QT_QPA_PLATFORMTHEME: kde
+
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
 
 finish-args:
   - --socket=wayland
@@ -47,8 +47,3 @@ modules:
         url: https://github.com/AresValley/Artemis
         tag: v4.1.0-flat
         commit: 1399226413f40acf9c21cfd5349b8be2bb74ab6c
-
-  - name: cleanup
-    buildsystem: simple
-    build-commands:
-      - /app/cleanup-BaseApp.sh
