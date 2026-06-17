@@ -31,13 +31,9 @@ modules:
   - name: artemis
     buildsystem: simple
     build-commands:
+      - pip3 install --prefix=${FLATPAK_DEST} --no-deps --no-build-isolation .
+
       - install -Dm755 artemis-launcher ${FLATPAK_DEST}/bin/artemis-launcher
-      - install -d ${FLATPAK_DEST}/lib/python3.13/site-packages/artemis
-
-      - cp -r artemis/* ${FLATPAK_DEST}/lib/python3.13/site-packages/artemis/
-
-      - install -d ${FLATPAK_DEST}/lib/python3.13/site-packages/config
-      - cp -r config/* ${FLATPAK_DEST}/lib/python3.13/site-packages/config/
 
       - install -Dm644 data/com.aresvalley.artemis.desktop -t ${FLATPAK_DEST}/share/applications/
       - install -Dm644 data/com.aresvalley.artemis.svg -t ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/
@@ -46,4 +42,4 @@ modules:
       - type: git
         url: https://github.com/AresValley/Artemis
         tag: v4.1.0-flat
-        commit: 1399226413f40acf9c21cfd5349b8be2bb74ab6c
+        commit: dde2c0efd7e49cf539ac20e765eaf62f015b92bd
