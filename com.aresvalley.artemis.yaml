@@ -41,5 +41,5 @@ modules:
     sources:
       - type: git
         url: https://github.com/AresValley/Artemis
-        tag: v4.1.5
-        commit: 4c62a3715b1278e1890763eaa4f208b682dea431
+        tag: v4.2.0
+        commit: b49cc84ca429a46afcc63fb3c345423ef6cdf4de
